@@ -1,0 +1,206 @@
+/* Reset default styling and set font family */
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background: #111;
+}
+
+/* Box-sizing for all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* Adjust font weight for headings */
+h1, h2 {
+    font-weight: 600;
+}
+
+/* Main container for the weather app */
+.weather-app {
+    min-height: 100vh;
+    background-image: url(./images/day/cloudy.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+/* Semi-transparent overlay for the background image */
+.weather-app::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+/* Main container for content */
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2em 3em 4em 3em;
+}
+
+/* Styling for individual sections within the container */
+.container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for city and time */
+.city-time, .temp, .weather {
+    margin: 0 1em;
+}
+
+.city-time h1 {
+    margin: 0;
+    margin-bottom: 0.2em;
+    font-size: 3em;
+}
+
+/* Styling for temperature */
+.temp {
+    font-size: 7em;
+    margin: 0;
+}
+
+/* Styling for weather icon */
+.weather img {
+    display: block;
+    margin: 0.5em 0;
+}
+
+/* Styling for the side panel */
+.panel {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgba(110, 110, 110, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 1;
+    padding: 3em 2em;
+    overflow-y: scroll;
+}
+
+/* Styling for the search form */
+.panel form {
+    margin-bottom: 3em;
+}
+
+/* Styling for the search button */
+.submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.5em;
+    margin: 0;
+    border: none;
+    background: #fa6d1b;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+.submit:hover {
+    background: #fff !important;
+    color: #000;
+}
+
+/* Styling for the search input */
+.search {
+    background: none;
+    border: none;
+    border-bottom: 1px #ccc solid;
+    padding: 0 1em 0.5em;
+    width: 80%;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.search:focus {
+    outline: none;
+}
+
+/* Styling for search input placeholder */
+.search::placeholder {
+    color: #ccc;
+}
+
+/* Styling for list items in the panel */
+.panel ul {
+    padding: 0 0 1em 0;
+    margin: 2em 0;
+    border-bottom: 1px #ccc solid;
+}
+
+.panel ul li {
+    color: #ccc;
+    margin: 2.5em 0;
+}
+
+/* Styling for heading within the panel list */
+.panel ul h4 {
+    margin: 3em 0;
+    color: #fff;
+}
+
+/* Styling for clickable city names */
+.city {
+    display: block;
+    cursor: pointer;
+}
+
+.city:hover {
+    color: #fff;
+}
+
+/* Styling for details list items */
+.details li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 800px) {
+    .panel,
+    .container {
+        position: relative;
+        width: 100%;
+        top: initial;
+    }
+}
+
+/* Media query for even smaller screens */
+@media screen and (max-width: 500px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* Media query for screens with limited height */
+@media screen and (max-height: 300px) {
+    .weather-app {
+        min-height: 40em;
+    }
+}
